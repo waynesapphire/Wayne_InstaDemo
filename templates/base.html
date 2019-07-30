@@ -1,16 +1,17 @@
 <html>
-    {% load static %}
     <head>
+        {% load static %}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Wayne Insta</title>
+        <title>Wayne InstaDemo</title>
         <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'vendor/font-awesome-4.6.3/css/font-awesome.min.css' %}" rel="stylesheet">
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
     </head>
     <body>
 
-        {% include 'nav.html' %}
+        {% load static %}
+        {% include 'header.html' %}
         
         <div class="content-wrapper">
             <div class="container">

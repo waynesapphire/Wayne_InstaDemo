@@ -1,6 +1,9 @@
 from django.contrib import admin
-from Insta.models import Post, InstaUser, Comment, Like, UserConnection
+
+from Insta.models import Comment, InstaUser, Like, Post, UserConnection
+
 # Register your models here.
+
 class CommentInline(admin.StackedInline):
     model = Comment
 
