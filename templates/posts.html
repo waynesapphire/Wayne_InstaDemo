@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+    <a href="{% url 'make_post' %}">Make Post </a>
+</div>
+
+<div>
+
+    {% for post in object_list %}
+        <p>{{post.title}}</p>
+        <a href="{% url 'post_detail' post.pk %}">
+            <img src="{{ post.image }}">
+        </a>   
+    {% endfor %}
+
+</div>
+
+{% endblock content %}
