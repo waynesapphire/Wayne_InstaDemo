@@ -33,6 +33,7 @@ class InstaUser(AbstractUser):
             return self.username
 
 class UserConnection(models.Model):
+    created = models.DateTimeField(auto_now_add=True, editable=False)
     creator = models.ForeignKey(
         InstaUser,
         on_delete=models.CASCADE,
@@ -63,7 +64,11 @@ class Post(models.Model):
         options = {'quality':100},
         blank = True,
         null = True,)
-
+    posted_on = models.DateTimeField(
+        auto_now_add=True,
+        editable=False,
+    )
+    
     def __str__(self):
         return self.title
 
@@ -106,7 +111,8 @@ class Like(models.Model):
         on_delete = models.CASCADE,
         related_name = 'likes'
     )
-    
+    class Meta:
+        unique_together = ("post", "user")
     
     def __str__(self):
         return 'Like:' + self.user.username + 'Likes' + self.post.title
